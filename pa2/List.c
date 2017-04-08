@@ -49,7 +49,7 @@
   }
   
   // Destructor
-  void freeNode(Node* pN) {
+  void freeNode(Node *pN) {
     if (pN != NULL && *pN != NULL) {
       free(*pN); 
       *pN = NULL;
@@ -57,7 +57,7 @@
   }
 
   // Destructor
-  void freeList(List* pL) {
+  void freeList(List *pL) {
     if (pL == NULL || *pL == NULL) {
       return;
     }
@@ -413,7 +413,7 @@
   // Other Functions ---------------------------------------------------------
 
   // prints the List
-  void printList(FILE * out, List L) {
+  void printList(FILE *out, List L) {
     if (L == NULL) {
       printf("List Error: calling printList() on NULL List reference\n");
       exit(1);
