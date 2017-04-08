@@ -1,9 +1,14 @@
-//-----------------------------------------------------------------------------
-// Carlos Barillas - cbarilla@ucsc.edu
-// SID: 1380581
-// CMPS101
-// PA4- FindPath.c 
-//----------------------------------------------------------------------------
+/*
+ * Carlos Barillas - cbarilla@ucsc.edu
+ * CMPS101 - PA$ - FindPath.c 
+ *
+ * Reads input file, makes Graph, performs BFS on Graph. Then returns output 
+ * file with graph and uses results of BFS to print out the distance from 
+ * source to vertex and print out a shortest path from source to destination
+ * compile : % make
+ *           % FindPath input_file output_file
+ *
+ */
 
 #include<stdio.h>
 #include<stdlib.h>
