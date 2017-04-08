@@ -1,12 +1,7 @@
-CARLOS BARILLAS - cbarilla@ucsc.edu
-CMPS101 - PA1
-
-Files submitted: 
-Lex.java 
-List.java
-ListClient.java
-Makefile
-README
-
-List.java is an Integer List ADT which uses the doubly linked list data structure.
-Lex.java takes two command line arguments. Input file can be any text file, output file will be the input arranged in alphabetical order. Uses Insertion Sort to indirectly sort the array by building a List of indices in a certain order.
+I. File List
+------------ 
+Lex.java               Takes an input file and creates output file which contains input file sorted alpha.
+List.java              Integer List ADT which uses the doubly linked list data structure.
+ListClient.java        A test client for the List ADT.
+Makefile               Creates executable jar file called Lex
+README                 This file.
