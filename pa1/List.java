@@ -6,30 +6,30 @@
  */
 
 
-class List{
+class List {
 
-  private class Node{
+  private class Node {
     // Fields
     int data;
     Node next;
     Node prev;
       
     // Constructor
-    Node(int data){ 
+    Node(int data) { 
       this.data = data; 
       next = prev = null;
     }
       
     // toString():  overrides Object's toString() method
-    public String toString(){ 
+    public String toString() { 
       return String.valueOf(data); 
     }
       
     // equals(): overrides Object's equals() method
-    public boolean equals(Object x){
+    public boolean equals(Object x) {
       boolean eq = false;
       Node that;
-      if (x instanceof Node){
+      if (x instanceof Node) {
         that = (Node) x;
         eq = (this.data == that.data);
       }
@@ -45,7 +45,7 @@ class List{
   private int index;
 
   // Constructor
-  List(){ 
+  List() { 
     front = back = cursor = null; 
     length = 0;
     index = -1;
@@ -54,13 +54,13 @@ class List{
   // Access functions -------------------------------------------------------------------
 
   // Returns the number of elements in this List
-  int length(){
+  int length() {
     return length;
   }
   
   // If cursor is defined, returns the index of the cursor element,
   // otherwise returns -1.
-  int index(){            
+  int index() {            
     if (cursor != null)   
       return index;
     else
@@ -68,21 +68,21 @@ class List{
   }	             
    
   // Returns front element. Pre: length()>0
-  int front(){
+  int front() {
     if (length <= 0)
       throw new RuntimeException("List Error: front() called on empty list.");
     return front.data;
   }
 
   // Returns back element. Pre: length()>0
-  int back(){
+  int back() {
     if (length <= 0)
       throw new RuntimeException("List Error: back() called on empty list.");
     return back.data;
   }
 
   // Returns cursor element. Pre: length()>0, index()>=0
-  int get(){
+  int get() {
     if (length <= 0)
       throw new RuntimeException("List Error: get() called on empty list.");
     if (index < 0)
@@ -92,12 +92,12 @@ class List{
    
   // Returns true if this List and L are the same integer
   // sequence. The cursor is ignored in both lists. 
-  public boolean equals(List L){
+  public boolean equals(List L) {
     boolean flag  = true;
     Node N = this.front;
     Node M = L.front;
-    if (this.length == L.length){
-      while (flag && N != null){
+    if (this.length == L.length) {
+      while (flag && N != null) {
         flag = (N.data == M.data);
         N = N.next;
         M = M.next;
@@ -110,7 +110,7 @@ class List{
   // Manipulation Procedures -------------------------------------------------
    
   // Resets this List to its original empty state.
-  void clear(){
+  void clear() {
     front = back = cursor = null;
     length = 0;
     index = -1;
@@ -119,7 +119,7 @@ class List{
   // If List is non-empty, places the cursor under the front
   // element, otherwise does nothing.
   void moveFront() { 
-    if (length>0){ 
+    if (length>0) { 
       cursor = front;
       index = 0;
     }
@@ -138,7 +138,7 @@ class List{
   // front of this List, if cursor is defined and at front, cursor becomes
   // undefined, if cursor is undefined does nothing.
   void movePrev(){
-    if (cursor != null && index != 0){
+    if (cursor != null && index != 0) {
       cursor = cursor.prev;
       index--;
     }
@@ -152,11 +152,11 @@ class List{
   // back of this List, if cursor is defined and at back, cursor becomes
   // undefined, if cursor is undefined does nothing.
   void moveNext() {
-    if (cursor != null && index != length-1){
+    if (cursor != null && index != length-1) {
       cursor = cursor.next;
       index++;
     }
-    else if (cursor != null && index == length-1){
+    else if (cursor != null && index == length-1) {
       cursor = null;
       index = -1;
     }
@@ -164,9 +164,9 @@ class List{
     
   // Insert new element into this List. If List is non-empty,
   // insertion takes place before front element.
-  void prepend(int data){
+  void prepend(int data) {
     Node N;
-    if (front == null){
+    if (front == null) {
       front = new Node(data);
       back = front;
       cursor = front;
@@ -182,9 +182,9 @@ class List{
     
   // Insert new element into this List. If List is non-empty,
   // insertion takes place after back element.
-  void append(int data){
+  void append(int data) {
     Node N;
-    if (back == null){
+    if (back == null) {
       back = new Node(data);
       front = back;
       cursor = back;
@@ -200,7 +200,7 @@ class List{
 
   // Inserts new element before cursor element in this
   // List. Pre: length()>0, getIndex()>=0
-  void insertBefore(int data) throws RuntimeException{
+  void insertBefore(int data) {
     if (length <= 0 || index < 0)
       throw new RuntimeException( "List Error: insertBefore() called on an empty list.");
     else{
@@ -221,7 +221,7 @@ class List{
    
   // Inserts new element after cursor.
   // Pre: length()>0, index()>=0
-  void insertAfter(int data){
+  void insertAfter(int data) {
     if (length <= 0 || index < 0)
       throw new RuntimeException("List Error: insertAfter() called on empty list");
     else{
@@ -240,11 +240,11 @@ class List{
   }
 			
   // Deletes the front element. Pre: length()>0
-  void deleteFront() throws RuntimeException{
+  void deleteFront() {
     if (length <= 0) 
       throw new RuntimeException("List Error: deleteFront() called on empty list");
     
-    if(cursor == front){
+    if (cursor == front) {
       cursor = null;
       index = -1;
     }
@@ -254,11 +254,11 @@ class List{
   }
 
   // Deletes the back element. Pre: length()>0
-  void deleteBack() throws RuntimeException{
+  void deleteBack() {
     if (length <= 0)
       throw new RuntimeException("List Error: deleteBack() called on empty list");
     
-    if(cursor == back) {
+    if (cursor == back) {
       cursor = null;
       index = -1;
     }
@@ -269,7 +269,7 @@ class List{
     
   // Deletes cursor element, making cursor undefined.
   // Pre: length()>0, index()>=0
-  void delete() throws RuntimeException{
+  void delete() {
     if (length() <= 0 || index()< 0)
       throw new RuntimeException("List Error: delete() called on an empty list.");
     else{
@@ -285,10 +285,10 @@ class List{
 
   // toString()
   // Overides Object's toString() method.
-  public String toString(){
+  public String toString() {
     String str = " ";
     Node N = front;
-    while (N != null){
+    while (N != null) {
          str += N.toString() + " ";
          N = N.next;
     }
@@ -297,11 +297,11 @@ class List{
 
   // copy()
   // Returns a new Queue identical to this Queue.
-  List copy(){
+  List copy() {
     List Q = new List();
     Node N = this.front;
 
-    while (N != null){
+    while (N != null) {
       Q.append(N.data);
       N = N.next;
     }

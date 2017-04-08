@@ -24,7 +24,7 @@ public class Lex {
     int lines = 0;
       
     // Check if two arguments are passed
-    if(args.length != 2) {
+    if (args.length != 2) {
       System.err.println("Usage: Lex infile outfile");
       System.exit(1);
     }
@@ -33,7 +33,7 @@ public class Lex {
     in = new Scanner(new File(args[0]));
 
     // Counts lines of file
-    while(in.hasNextLine()) {
+    while (in.hasNextLine()) {
       ++lines;
       in.nextLine();
     }
@@ -48,7 +48,7 @@ public class Lex {
     out = new PrintWriter(new FileWriter(args[1]));
 
     // Add lines from file into array
-    for (int i = 0; i < lines; i++){
+    for (int i = 0; i < lines; i++) {
       line = in.nextLine()+" ";   
       array[i] = line;
     } 		        		
@@ -75,7 +75,7 @@ public class Lex {
     // Reset index to the front of the List
     // Prints sorted list.
     list.moveFront();
-    while(list.index() >= 0) {
+    while (list.index() >= 0) {
       out.println(array[list.get()]);
       list.moveNext();
     }
