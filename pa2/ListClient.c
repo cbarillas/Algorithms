@@ -1,4 +1,4 @@
-/*  Carlos Barillas - cbarillas@ucsc.edu
+/*  Carlos Barillas - cbarilla@ucsc.edu
  *  CMPS101 - PA2 - ListClient.c
  *  
  *  A test client for List ADT.
