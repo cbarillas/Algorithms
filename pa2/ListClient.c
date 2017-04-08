@@ -1,8 +1,9 @@
-/*
-*  ListClient.c
-*  Test client for List ADT
-*
-*/
+/*  Carlos Barillas - cbarillas@ucsc.edu
+ *  CMPS101 - PA2 - ListClient.c
+ *  
+ *  A test client for List ADT.
+ *
+ */
 
 #include<stdio.h>
 #include<stdlib.h>
