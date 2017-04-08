@@ -26,6 +26,7 @@ int get(List L);
 int equals(List A, List B); 
 
 // Manipulation procedures ----------------------------------------------------
+
 void clear(List L); 
 
 void moveFront(List L); 
@@ -51,6 +52,7 @@ void deleteBack(List L);
 void delete(List L); 
 
 // Other operations -----------------------------------------------------------
+
 void printList(FILE * out, List L);
 
  
