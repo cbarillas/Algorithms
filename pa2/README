@@ -1,6 +1,6 @@
 I. File List
 ------------
-Lex.c               Takes an input file and creates output file which contains input file sorted alphabetically.
+Lex.c               Takes an input file and creates output file which contains input file sorted alpha.
 List.c              Integer List ADT which uses the doubly linked list data structure.
 ListClient.c        Test client for Integer List ADT.
 List.h              Function prototypes. 
