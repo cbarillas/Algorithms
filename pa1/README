@@ -1,0 +1,12 @@
+CARLOS BARILLAS - cbarilla@ucsc.edu
+CMPS101 - PA1
+
+Files submitted: 
+Lex.java 
+List.java
+ListClient.java
+Makefile
+README
+
+List.java is an Integer List ADT which uses the doubly linked list data structure.
+Lex.java takes two command line arguments. Input file can be any text file, output file will be the input arranged in alphabetical order. Uses Insertion Sort to indirectly sort the array by building a List of indices in a certain order.

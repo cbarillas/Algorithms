@@ -1,0 +1,14 @@
+CARLOS BARILLAS - cbarilla@ucsc.edu
+CMPS101 - PA2
+
+Files submitted:
+Lex.c
+List.c
+ListClient.c
+List.h
+Makefile
+README
+
+List.c is an Integer List ADT which uses the doubly linked list data structure.
+Lex.c takes two command line arguments. Input file can be any text file, output file will be the input arranged in alphabetical order. Uses Insertion Sort to indirectly sort the array by building a List of indices in a certain order.
+
