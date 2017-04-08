@@ -2,11 +2,15 @@
 #define LIST_H_INCLUDE_
 
 typedef struct ListObj* List;
+
 // Constructors-Destructors ---------------------------------------------------
+
 List newList(void); 
 
 void freeList(List* pL);
+
 // Access functions -----------------------------------------------------------
+
 int isEmpty(List L);
 
 int length(List L); 
@@ -20,7 +24,9 @@ int back(List L);
 int get(List L); 
 
 int equals(List A, List B); 
+
 // Manipulation procedures ----------------------------------------------------
+
 void clear(List L); 
 
 void moveFront(List L); 
@@ -44,8 +50,11 @@ void deleteFront(List L);
 void deleteBack(List L); 
 
 void delete(List L); 
+
 // Other operations -----------------------------------------------------------
+
 void printList(FILE * out, List L);
 
 List copyList(List L); 
+
 #endif
