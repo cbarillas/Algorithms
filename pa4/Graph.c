@@ -1,9 +1,9 @@
-//-----------------------------------------------------------------------------
-// Carlos Barillas - cbarilla@ucsc.edu
-// SID: 1380581
-// CMPS101
-// PA4 - Graph.c
-//-----------------------------------------------------------------------------
+/*
+ * Carlos Barillas - cbarilla@ucsc.edu
+ * CMPS101 - PA4 - Graph.c
+ *
+ * Implements a Graph ADT
+ */
 
 #include <assert.h>
 #include <stdlib.h>
@@ -11,90 +11,90 @@
 #include "Graph.h"
 
 
-//GraphObj
-typedef struct GraphObj{
-   List *adjacent;
-   int *color;
-   int *parent;
-   int *distance;
-   int order;
-   int size;
-   int source;
-}GraphObj;
+  //GraphObj
+  typedef struct GraphObj {
+    List *adjacent;
+    int *color;
+    int *parent;
+    int *distance;
+    int order;
+    int size;
+    int source;
+  } GraphObj;
 
-/*** Constructors-Destructors ***/
+  // Constructors-Destructors ------------------------------------------------
 
-// newGraph()
-// returns a Graph pointing to a newly created GraphObj
-// with n vertices and no edges
-Graph newGraph(int n){
-   Graph G = malloc(sizeof(GraphObj));
-   assert(G!=NULL);
-   G->adjacent = calloc(n+1, sizeof(List));
-   G->color = calloc(n+1, sizeof(int));
-   G->parent = calloc(n+1, sizeof(int));
-   G->distance = calloc(n+1, sizeof(int));
-   G->order = n;
-   G->size = 0;
-   G->source = NIL;
-   for(int i=1;i<=n;++i) {
+  // newGraph()
+  // returns a Graph pointing to a newly created GraphObj
+  // with n vertices and no edges
+  Graph newGraph(int n) {
+    Graph G = malloc(sizeof(GraphObj));
+    assert(G != NULL);
+    G->adjacent = calloc(n+1, sizeof(List));
+    G->color = calloc(n+1, sizeof(int));
+    G->parent = calloc(n+1, sizeof(int));
+    G->distance = calloc(n+1, sizeof(int));
+    G->order = n;
+    G->size = 0;
+    G->source = NIL;
+    for (int i = 1;i <= n; ++i) {
       G->adjacent[i] = newList();
       G->color[i] = WHITE;
       G->parent[i] = NIL;
       G->distance[i] = INF;
-   }
-   return G;
-}
+    }
+    return G;
+  }
 
-// freeGraph()
-// frees all dynamic memory associated with the Graph *pG
-void freeGraph(Graph* pG){
-   if(pG==NULL||(*pG)==NULL)
+  // freeGraph()
+  // frees all dynamic memory associated with the Graph *pG
+  void freeGraph(Graph *pG) {
+    if(pG == NULL || (*pG) == NULL)
       return;
 
-   for(int i=1;i<=getOrder(*pG);++i) {
+    for (int i = 1;i <= getOrder(*pG); ++i) {
       freeList(&((*pG)->adjacent[i]));
-   }
-   free((*pG)->adjacent);
-   free((*pG)->color);
-   free((*pG)->parent);
-   free((*pG)->distance);
-   free(*pG);
-   *pG = NULL;
-   
-}
+    }
+    free((*pG)->adjacent);
+    free((*pG)->color);
+    free((*pG)->parent);
+    free((*pG)->distance);
+    free(*pG);
+    *pG = NULL; 
+  }
 
-/*** Access functions ***/
+  // Access functions --------------------------------------------------------
 
-// getOrder()
-// returns the order(# of vertices) of the graph
-int getOrder(Graph G){
-   if(G==NULL){
+  // getOrder()
+  // returns the order(# of vertices) of the graph
+  int getOrder(Graph G) {
+    if(G == NULL){
       printf("Graph Error: calling getOrder() on NULL Graph reference\n");
       exit(1);
-   }
-   return G->order;
-}
-// getSize()
-// returns the size(# of edges) of the graph
-int getSize(Graph G){
-   if(G==NULL){
+    }
+    return G->order;
+  }
+
+  // getSize()
+  // returns the size(# of edges) of the graph
+  int getSize(Graph G) {
+    if(G == NULL){
       printf("Graph Error: calling getSize() on NULL Graph reference\n");
       exit(1);
-   }
-   return G->size;
-}
+    }
+    return G->size;
+  }
 
-// getSource()
-// returns the source vertex most recently used in function BFS(), or NIL if
-// BFS() has not yet been called
-int getSource(Graph G){
-   if(G==NULL){
-      printf("Graph Error: calling getSource() on NULL Graph reference\n");
+  // getSource()
+  // returns the source vertex most recently used in function BFS(), or NIL if
+  // BFS() has not yet been called
+  int getSource(Graph G) {
+   if(G == NULL){
+     printf("Graph Error: calling getSource() on NULL Graph reference\n");
       exit(1);
    }
    return G->source;
-}
+  }
 
 // getParent()
 // return the parent of vertex u in the BreadthFirst
