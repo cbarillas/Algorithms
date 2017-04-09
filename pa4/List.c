@@ -428,7 +428,7 @@
   // Returns a new List identical to this List.
   List copyList(List L) {
     if (L == NULL) {
-      printf("List Error: calling copyList() on Null List reference\n");
+      printf("List Error: calling copyList() on NULL List reference\n");
       exit(1);
     }
     List copy = newList();
