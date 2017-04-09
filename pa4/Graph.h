@@ -10,13 +10,13 @@
 
 typedef struct GraphObj *Graph;
 
-/*** Constructors-Destructors ***/
+// Constructors-Destructors --------------------------------------------------
 
 Graph newGraph(int n);
 
 void freeGraph(Graph* pG);
 
-/*** Access functions ***/
+// Access functions ----------------------------------------------------------
 
 int getOrder(Graph G);
 
@@ -30,7 +30,7 @@ int getDist(Graph G, int u);
 
 void getPath(List L, Graph G, int u);
 
-/*** Manipulation procedures ***/
+// Manipulation procedures ---------------------------------------------------
 
 void makeNull(Graph G);
 
@@ -40,7 +40,7 @@ void addArc(Graph G, int u, int v);
 
 void BFS(Graph G, int s);
 
-/*** Other operations ***/
+// Other operations --------------------------------------------------------
 
 void printGraph(FILE* out, Graph G);
 
