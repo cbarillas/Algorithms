@@ -1,13 +1,13 @@
-//-----------------------------------------------------------------------------
-// Carlos Barillas - cbarilla@ucsc.edu
-// SID: 1380581
-// CMPS101
-// PA4- GrphTest.c 
-//----------------------------------------------------------------------------
+/*
+ * Carlos Barillas - cbarilla@ucsc.edu
+ * CMPS101 - PA4 - GraphTest.c 
+ *
+ * Test Client for Graph ADT
+ */
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-
 #include "Graph.h"
 
 int main(int argc, char *argv[]) {
