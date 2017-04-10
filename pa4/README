@@ -6,6 +6,6 @@ Graph.c               Graph ADT & Breadth First Search algorithm.
 Graph.h               Function prototpyes for Graph ADT.
 GraphTest.c           Test client for Graph ADT.
 FindPath.c            Takes two command line arguments. Finds shortest path of a graph.
-Makefile              Creates executable FindPath. Also contains other make utilies.
+Makefile              Creates executable called FindPath. Also contains other make utilies.
 README                This file.
 
