@@ -1,13 +1,11 @@
-CARLOS BARILLAS - cbarilla@ucsc.edu
-CMPS101 - PA4
-
-Files submitted:
-List.c
-List.h
-Graph.c
-Graph.h
-GraphTest.c
-FindPath.c
-Makefile
-README
+I. File List
+-------------
+List.c                Integer List ADT which uses the doubly linked list data structure.
+List.h                Function prototypes for List ADT.
+Graph.c               Graph ADT & Breadth First Search algorithm.
+Graph.h               Function prototpyes for Graph ADT.
+GraphTest.c           Test client for Graph ADT.
+FindPath.c            Takes two command line arguments. Finds shortest path of a graph.
+Makefile              Creates executable FindPath. Also contains other make utilies.
+README                This file.
 
