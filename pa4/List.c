@@ -178,8 +178,7 @@
       exit(1);
     }
     if (isEmpty(L)) {
-      printf("List Error: calling clear() on an empty List\n");
-      exit(1);
+      return; 
     }
     while (L->front != NULL) {
       deleteFront(L);
