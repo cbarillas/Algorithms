@@ -5,7 +5,7 @@ List.h                  Function prototypes for List ADT.
 Graph.c                 Graph ADT & Depth First Search algorithm.
 Graph.h                 Function prototpyes for Graph ADT.
 GraphTest.c             Test client for Graph ADT.
-FindComponents.c        Reads in file, assembles Graph G, prints adj list representation of G, runs DFS on G and 
+FindComponents.c        Reads in file, assembles Graph G, prints adj list representation of G, runs DFS on G and
                         determines & prints the strong components of G to out file in topologically sorted order.
 Makefile                Creates executable called FindComponents. Also contains other make utilities.
 README                  This file.
