@@ -1,131 +1,134 @@
-//-----------------------------------------------------------------------------
-// Carlos Barillas - cbarilla@ucsc.edu
-// SID: 1380581
-// CMPS101
-// PA5- List.c 
-//-----------------------------------------------------------------------------
+/*
+ * Carlos Barillas - cbarilla@ucsc.edu
+ * CMPS101 - PA5- List.c 
+ *
+ * Integer List ADT which uses the doubly linked list data structure
+ *
+ */
 
 #include <stdio.h> 
 #include <stdlib.h> 
 #include "List.h"
 
 
-// Fields ----------------------------------------------------------------------
+  // Fields --------------------------------------------------------------------
 
-typedef struct NodeObj {
-  int data;
-  struct NodeObj * next;
-  struct NodeObj * prev;
-} NodeObj;
+  typedef struct NodeObj {
+    int data;
+    struct NodeObj *next;
+    struct NodeObj *prev;
+  } NodeObj;
 
-typedef NodeObj * Node;
+  typedef NodeObj *Node;
 
-typedef struct ListObj {
-  Node front;
-  Node back;
-  Node cursor;
-  int length;
-  int index;
-} ListObj;
+  typedef struct ListObj {
+    Node front;
+    Node back;
+    Node cursor;
+    int length;
+    int index;
+  } ListObj;
 
-// Constructors-Destructors -------------------------------------------------------------
+  // Constructors-Destructors -------------------------------------------------------------
 
-// Constructor
-Node newNode(int data) {
-  Node N = malloc(sizeof(NodeObj));
-  N->data = data;
-  N->next = NULL;
-  N->prev = NULL;
-  return (N);
-}
-
-// Constructor
-List newList(void) {
-  List L;
-  L = malloc(sizeof(ListObj));
-  L->front = L->back = L->cursor = NULL;
-  L->length = 0;
-  L->index = -1;
-  return (L);
-}
-// Destructor
-void freeNode(Node* pN) {
-  if (pN != NULL && *pN != NULL) {
-    free(*pN); 
-    *pN = NULL;
+  // Constructor
+  Node newNode(int data) {
+    Node N = malloc(sizeof(NodeObj));
+    N->data = data;
+    N->next = NULL;
+    N->prev = NULL;
+    return (N);
   }
-}
-// Destructor
-void freeList(List* pL) {
-  if (pL == NULL || *pL == NULL) {
-    return;
-  }
-  while (length(*pL) != 0) {
-    deleteFront(*pL);
-  }
-  free(*pL); 
-  *pL = NULL;
-}
 
-// Access functions -------------------------------------------------------------------
-
-// Returns 0(false) if List is not empty, 1 if true
-int isEmpty(List L) {
-  if (L == NULL) {
-    printf("List Error: calling isEmpty() on NULL List reference\n");
-    exit(1);
+  // Constructor
+  List newList(void) {
+    List L;
+    L = malloc(sizeof(ListObj));
+    L->front = L->back = L->cursor = NULL;
+    L->length = 0;
+    L->index = -1;
+    return (L);
   }
-  return (L->length==0);
-}
 
-// Returns the number of elements in this List
-int length(List L) {
-  if (L == NULL) {
-    printf("List Error: calling length() on NULL List reference\n");
-    exit(1);
-  }
-  return (L->length);
-}
-
-// If cursor is defined, returns the index of the cursor element,
-// otherwise returns -1.
-int index(List L) {
-  Node N = L->front;
-  if (L == NULL) {
-    printf("List Error: calling index() on NULL List reference\n");
-    exit(1);
-  }
-  int i = 0;
-  while (i != length(L) && N != NULL) {
-    if (N == L->cursor) return i;
-    else {
-      i++;
-      N = N->next;
+  // Destructor
+  void freeNode(Node *pN) {
+    if (pN != NULL && *pN != NULL) {
+      free(*pN); 
+      *pN = NULL;
     }
   }
-  return -1;
-}
 
-// Returns front element. Pre: length()>0
-int front(List L) {
-  if (L == NULL) {
-    printf("List Error: calling front() on NULL List reference\n");
-    exit(1);
+  // Destructor
+  void freeList(List* pL) {
+    if (pL == NULL || *pL == NULL) {
+      return;
+    }
+    while (length(*pL) != 0) {
+      deleteFront(*pL);
+    }
+    free(*pL); 
+    *pL = NULL;
   }
-  if ( isEmpty(L) ) {
-    printf("List Error: calling front() on an empty List\n");
-    exit(1);
-  }
-  return (L->front->data);
-}
 
-// Returns back element. Pre: length()>0
-int back(List L) {
-  if (L == NULL) {
-    printf("List Error: calling back() on NULL List reference\n");
-    exit(1);
+  // Access functions -------------------------------------------------------------------
+
+  // Returns 0(false) if List is not empty, 1 if true
+  int isEmpty(List L) {
+    if (L == NULL) {
+      printf("List Error: calling isEmpty() on NULL List reference\n");
+      exit(1);
+    }
+    return (L->length == 0);
   }
-  if ( isEmpty(L) ) {
+
+  // Returns the number of elements in this List
+  int length(List L) {
+    if (L == NULL) {
+      printf("List Error: calling length() on NULL List reference\n");
+      exit(1);
+    }
+    return (L->length);
+  }
+
+  // If cursor is defined, returns the index of the cursor element,
+  // otherwise returns -1.
+  int index(List L) {
+    Node N = L->front;
+    if (L == NULL) {
+      printf("List Error: calling index() on NULL List reference\n");
+      exit(1);
+    }
+    int i = 0;
+    while (i != length(L) && N != NULL) {
+      if (N == L->cursor) return i;
+      else {
+        i++;
+        N = N->next;
+      }
+    }
+    return -1;
+  }
+
+  // Returns front element. Pre: length()>0
+  int front(List L) {
+    if (L == NULL) {
+      printf("List Error: calling front() on NULL List reference\n");
+      exit(1);
+    }
+    if ( isEmpty(L) ) {
+      printf("List Error: calling front() on an empty List\n");
+      exit(1);
+    }
+    return (L->front->data);
+  }
+
+  // Returns back element. Pre: length()>0
+  int back(List L) {
+    if (L == NULL) {
+      printf("List Error: calling back() on NULL List reference\n");
+      exit(1);
+    }
+    if ( isEmpty(L) ) {
     printf("List Error: calling back() on an empty List\n");
     exit(1);
   }
