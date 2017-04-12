@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
   Graph G = newGraph(n);
   Graph T = NULL;
 
-  for (i = 1; i <=n ; i++) append(S, i);
+  for (i = 1; i <= n ; i++) append(S, i);
   addArc(G, 1, 2);
   addArc(G, 2, 3);
   addArc(G, 2, 5);
@@ -40,7 +40,7 @@ int main(int argc, char *argv[]) {
   DFS(G, S);
   printf("\n");
   printf("x:  d  f  p\n");
-  for (i = 1; i<= n; i++){
+  for (i = 1; i <= n; i++){
     fprintf(stdout, "%d: %2d %2d %2d\n",
     i, getDiscover(G, i), getFinish(G, i), getParent(G, i));
   }
