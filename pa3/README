@@ -1,13 +1,11 @@
-CARLOS BARILLAS - cbarilla@ucsc.edu
-CMPS101 - PA3
-
-Files submitted: 
-Sparse.java
-Matrix.java
-List.java
-MatrixTest.java
-ListTest.java
-Makefile
-README
+I. File List
+------------- 
+Sparse.java            Builds matrix from input file, prints matrix operations to outfile.
+Matrix.java            Matrix ADT, reps. a matrix as an array of Lists of Entry objects.
+List.java              Integer List ADT which uses the doubly linked list data structure.
+MatrixTest.java        Test client for Matrix ADT.
+ListTest.java          Test client for List ADT.
+Makefile               Creates execuatble jar file called Sparse.
+README                 This file.
 
 
