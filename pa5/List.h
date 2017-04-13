@@ -1,13 +1,13 @@
 #ifndef LIST_H_INCLUDE_
 #define LIST_H_INCLUDE_
 
-typedef struct ListObj* List;
+typedef struct ListObj *List;
 
 // Constructors-Destructors ---------------------------------------------------
 
 List newList(void); 
 
-void freeList(List* pL);
+void freeList(List *pL);
 
 // Access functions ----------------------------------------------------------
 
@@ -53,7 +53,7 @@ void delete(List L);
 
 // Other operations ----------------------------------------------------------
 
-void printList(FILE * out, List L);
+void printList(FILE *out, List L);
 
 List copyList(List L); 
 
