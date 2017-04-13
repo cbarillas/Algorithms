@@ -1,111 +1,114 @@
-//-----------------------------------------------------------------------------
-// Carlos Barillas - cbarilla@ucsc.edu
-// SID: 1380581
-// CMPS101
-// PA3 - List.java 
-//-----------------------------------------------------------------------------
+/*
+ *
+ * Carlos Barillas - cbarilla@ucsc.edu
+ * CMPS101 - PA3 - List.java 
+ *
+ * List ADT based on doubly linked list data structure.
+ */
 
-class List{
+class List {
 
-   private class Node{
-      // Fields
-      Object data;
-      Node next;
-      Node prev;
+  private class Node {
+    // Fields
+    Object data;
+    Node next;
+    Node prev;
       
-      // Constructor
-      Node(Object data){ 
+    // Constructor
+    Node(Object data) { 
       this.data = data; 
       next = prev = null;
-      }
+    }
       
-      // toString():  overrides Object's toString() method
-      public String toString() { 
-         return String.valueOf(data); 
-      }
+    // toString():  overrides Object's toString() method
+    public String toString() { 
+      return String.valueOf(data); 
+    }
       
-      // equals(): overrides Object's equals() method
-      public boolean equals(Object x){
-         boolean eq = false;
-         Node that;
-         if(x instanceof Node){
-            that = (Node)x;
-            eq = (this.data.equals(that.data));
-         }
-         return eq;
+    // equals(): overrides Object's equals() method
+    public boolean equals(Object x) {
+      boolean eq = false;
+      Node that;
+      if (x instanceof Node) {
+        that = (Node)x;
+        eq = (this.data.equals(that.data));
       }
-   }
+      return eq;
+    }
+  }
 
-   // Fields
-   private Node front;
-   private Node back;
-   private Node cursor;
-   private int length;
-   private int index;
+  // Fields
+  private Node front;
+  private Node back;
+  private Node cursor;
+  private int length;
+  private int index;
 
-   // Constructor
-   List() { 
-      front = back = cursor = null; 
-      length = 0;
-      index = -1;
-   }
+  // Constructor
+  List() { 
+    front = back = cursor = null; 
+    length = 0;
+    index = -1;
+  }
 
-   // Access functions -------------------------------------------------------------------
+  // Access functions -------------------------------------------------------
 
-   // Returns the number of elements in this List
-   int length(){
+  // Returns the number of elements in this List
+  int length() {
     return length;
-   }
+  }
   
-   // If cursor is defined, returns the index of the cursor element,
-   // otherwise returns -1.
-   int index(){            
+  // If cursor is defined, returns the index of the cursor element,
+  // otherwise returns -1.
+  int index(){            
     if (cursor != null)   
-     return index;
+      return index;
     else
-     return -1;
-   }	             
+      return -1;
+  }	             
    
-   // Returns front element. Pre: length()>0
-   Object front() {
-    if (length<=0)
-     throw new RuntimeException("List Error: front() called on empty list.");
+  // Returns front element. Pre: length()>0
+  Object front() {
+    if (length <= 0)
+      throw new RuntimeException("List Error: front() called on empty list.");
     return front.data;
-   }
+  }
 
-   // Returns back element. Pre: length()>0
-   Object back() {
-    if (length <=0)
-     throw new RuntimeException("List Error: back() called on empty list.");
+  // Returns back element. Pre: length()>0
+  Object back() {
+    if (length <= 0)
+      throw new RuntimeException("List Error: back() called on empty list.");
     return back.data;
-   }
+  }
 
-   // Returns cursor element. Pre: length()>0, index()>=0
-   Object get() {
-    if(length<=0)
-     throw new RuntimeException("List Error: get() called on empty list.");
-    if(index<0)
-     throw new RuntimeException("List Error: get() called on invalid index.");   
+  // Returns cursor element. Pre: length()>0, index()>=0
+  Object get() {
+    if (length <= 0)
+      throw new RuntimeException("List Error: get() called on empty list.");
+    if(index < 0)
+      throw new RuntimeException("List Error: get() called on invalid index.");   
     return cursor.data;
-   }
+  }
    
-   // Returns true if this List and L are the same integer
-   // sequence. The cursor is ignored in both lists. 
-   public boolean equals(List L){
-   Node N = this.front;
-   Node M = L.front;
-     if( this.length==L.length() ){
-        while (N != null && M!=null){
-           if(N.data.equals(M.data)){
-           N = N.next;
-           M = M.next;
-        }  else return false;
-     }
-     return true;
-     }
-     // L.length()!= length
-     return false;
-   }
+  // Returns true if this List and L are the same integer
+  // sequence. The cursor is ignored in both lists. 
+  public boolean equals(List L) {
+    Node N = this.front;
+    Node M = L.front;
+      if (this.length == L.length()) {
+        while (N != null && M!=null) {
+          if (N.data.equals(M.data)) {
+            N = N.next;
+            M = M.next;
+          }
+          else 
+           return false;
+        }
+        return true;
+      }
+      // L.length()!= length
+      return false;
+  }
    
    // Manipulation Procedures -------------------------------------------------
    
