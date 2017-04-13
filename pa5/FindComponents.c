@@ -1,6 +1,6 @@
 /*
  * Carlos Barillas - cbarilla@ucsc.edu
- *  CMPS101 - PA5 - FindComponents.c 
+ * CMPS101 - PA5 - FindComponents.c 
  *
  */
 
