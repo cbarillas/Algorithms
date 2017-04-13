@@ -40,7 +40,7 @@ int main(int argc, char *argv[]) {
   DFS(G, S);
   printf("\n");
   printf("x:  d  f  p\n");
-  for (i = 1; i <= n; i++){
+  for (i = 1; i <= n; i++) {
     fprintf(stdout, "%d: %2d %2d %2d\n",
     i, getDiscover(G, i), getFinish(G, i), getParent(G, i));
   }
@@ -58,7 +58,7 @@ int main(int argc, char *argv[]) {
   DFS(T, S);
   printf("\n");
   printf("x:  d  f  p\n");
-  for (i = 1; i <= n; i++){
+  for (i = 1; i <= n; i++) {
     fprintf(stdout, "%d: %2d %2d %2d\n",
     i, getDiscover(T, i), getFinish(T, i), getParent(T, i));
   }
