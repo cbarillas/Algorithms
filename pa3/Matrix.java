@@ -57,7 +57,7 @@ class Matrix {
     
   // Returns the number of non-zero entries in this Matrix
   int getNNZ() {
-    int nnz=0;
+    int nnz = 0;
     for (int i = 1; i <= getSize(); i++) {
          nnz += row[i].length();
     }
@@ -71,7 +71,7 @@ class Matrix {
       M = (Matrix)x;
       if (this.getSize() == M.getSize()) {
         for (int i = 1; i <= getSize(); i++) {
-          if(!(row[i].equals(M.row[i]))) 
+          if (!(row[i].equals(M.row[i]))) 
             return false;
         }
       } //return false; //if M.getSize()!=getSize()
@@ -114,8 +114,8 @@ class Matrix {
       Entry E = (Entry)row[i].get();
       if (E.column < j) 
         row[i].moveNext();
-        if (E.column == j){
-          if(x == 0){
+        if (E.column == j) {
+          if (x == 0) {
             row[i].delete();
             NNZ--;
             return;   
@@ -128,8 +128,8 @@ class Matrix {
       }
     if (x != 0) {
       row[i].moveFront();
-      if(row[i].length() == 0) {
-        row[i].append(new Entry(j,x));
+      if (row[i].length() == 0) {
+        row[i].append(new Entry(j, x));
         return;
       } 
       else {
@@ -211,17 +211,17 @@ class Matrix {
       for (R1.moveFront(), R2.moveFront(); R1.index() != -1 && R2.index() != -1; ) {
         Entry temp1 = (Entry)R1.get();
         Entry temp2 = (Entry)R2.get();
-        if (temp1.column == temp2.column){
+        if (temp1.column == temp2.column) {
           result.changeEntry(i, temp1.column, temp1.value-temp2.value);
           R1.moveNext();
           R2.moveNext();
           continue;
         }
-        if (temp1.column > temp2.column){
+        if (temp1.column > temp2.column) {
           result.changeEntry(i, temp2.column, temp2.value);
           R2.moveNext();
         }
-        else{
+        else {
           result.changeEntry(i, temp1.column, temp1.value);
           R1.moveNext();
         }
@@ -231,11 +231,11 @@ class Matrix {
   }
 
   // returns a new Matrix that is the transpose of this Matrix
-  Matrix transpose(){
+  Matrix transpose() {
     Matrix M = new Matrix(size+1);
     for (int i = 1; i <= getSize(); i++) {
       row[i].moveFront();
-      while (row[i].index() != -1){
+      while (row[i].index() != -1) {
         Entry E = (Entry)row[i].get();
         M.changeEntry(E.column, i, E.value);
         row[i].moveNext();
@@ -246,17 +246,17 @@ class Matrix {
    
   // returns a new Matrix that is the product of this Matrix with M
   // pre: getSize()==M.getSize()
-  Matrix mult (Matrix M) {
+  Matrix mult(Matrix M) {
     if (this.getSize() != M.getSize())
       throw new RuntimeException("mult() called on two matrices of unequal size");
       
     Matrix N = new Matrix(size);
     Matrix transposeM = M.transpose();
     for (int i = 1; i <= getSize(); i++) {
-      if(row[i].length() > 0) {
-        for( int j=1; j <= getSize(); j++) {
+      if (row[i].length() > 0) {
+        for (int j = 1; j <= getSize(); j++) {
           if (transposeM.row[j].length() > 0)
-            N.changeEntry(i,j,dot(row[i],transposeM.row[j]));
+            N.changeEntry(i, j, dot(row[i], transposeM.row[j]));
         }
       }
     }
@@ -277,16 +277,16 @@ class Matrix {
 
   // helper fuction for mult()
   // adds the values in P and Q
-  private double dot(List P, List Q){
+  private double dot(List P, List Q) {
     Entry x;
     Entry y;
-    double temp=0;
+    double temp = 0;
     if (P == null || Q == null) {
       return 0;
     }
     P.moveFront();
     Q.moveFront();
-    while (P.index()!=-1 && Q.index()!=-1){
+    while (P.index() != -1 && Q.index()!=-1) {
       x = (Entry)P.get();
       y = (Entry)Q.get();
       if (x.column < y.column)
